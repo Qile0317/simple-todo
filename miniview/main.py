@@ -11,7 +11,7 @@ m = get_monitors()[0]
 w, h = m.width, m.height
 
 #app width = 1/5 of the screen
-app_width = w//5
+app_width = w//3
 window.geometry("%dx%d" % (app_width, h))
 
 ## Add to todo list button

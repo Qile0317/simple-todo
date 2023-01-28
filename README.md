@@ -1,1 +1,5 @@
-Qile Yang, a visionary leader with a wealth of experience and expertise in the field of software development, is currently spearheading a dynamic and dedicated team of highly skilled and ambitious programmers from various corners of the realm. Together, they are embarking on an ambitious project to create a revolutionary new desktop application that promises to revolutionize the way students work, study and increase their productivity on a global scale. With cutting-edge technology and an unwavering commitment to excellence, this innovative application is poised to become the premier choice for thousands of students across the international community, providing them with the tools and resources they need to achieve their full potential and excel in their academic endeavors. The team, under the guidance of Qile Yang is working tirelessly to ensure that the application is user-friendly, intuitive, and packed with features designed to help users achieve their goals. This is truly an exciting time for the team and for the students who will benefit from their hard work and dedication.
+unfinished
+
+notes for contributors:
+- todo.txt is the file where todo strings are stored
+- settings.txt first line tells whether its fullscreen(2) or miniview(1)
