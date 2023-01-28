@@ -1,3 +1,4 @@
+#will redo in kivy
 import tkinter as tk
 from screeninfo import get_monitors
 
@@ -34,13 +35,15 @@ future of this app:
 - add on screen gui for each item to be clicked away as finished
 - in addition, add option to modify due date and name.
 - add timeline of things to do
-- potential integration with google calendar (have it on the side)
+- potential integration with google calendar (have it on the side in a web window)
 - to do items could be sorted by priority AND alphabetical order(optional)
 
 - the todo.txt file structure should be:
 index(int)
 name(str)
 end date(posicxt)
+
+and it can be accessed by the API to display the items and display when its due
 """
 
 
