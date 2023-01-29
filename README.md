@@ -24,3 +24,5 @@ before dependency stuff gets sorted, you need:
 - screeninfo
 - Piprecs (for modifying requirements.txt) just literally type ```piprecs --force``` in the terminal if you have any new dependencies loaded. however piprecs isnt working properly atm
 - unittest
+
+Also, there should in general be more handling of invalid imputs.

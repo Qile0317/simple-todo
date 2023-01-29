@@ -9,7 +9,7 @@ class item:
     def __init__(self, completion = "-", priority = "", 
                  startdate = dt.datetime.now(),
                  enddate = dt.datetime.now()+dt.timedelta(weeks=1),
-                 task ="",project="",context="",maths ="") -> None:
+                 task ="placeholder_task",project="",context="",maths ="") -> None:
         self.completion = completion # str: x or - (completed or incomplete)
         self.priority = priority # str: A - Z or ""
         self.startdate = startdate # dt.datetime
@@ -21,7 +21,7 @@ class item:
     
     # return the attributes in the format of:
     # x (A) YYYY-mm-dd HH:MM:SS YYYY-mm-dd HH:MM:SS task +project @context =2+2
-    def __str__(self) -> str:
+    def __repr__(self) -> str:
         returnstr = self.completion + " "
         returnstr += _show.priority(self.priority)
         returnstr += _show.date(self.startdate)
@@ -40,26 +40,26 @@ class item:
         self.startdate = dt.datetime.strptime(line[6:25] ,"%Y-%m-%d %H:%M:%S")
         self.enddate = dt.datetime.strptime(line[26:45] ,"%Y-%m-%d %H:%M:%S")
         
-        #getting task, project, context, maths
+        #getting task, project, context, maths. It assumes there are no additional "+","@" or "="
         n = len(line)
-        plus_count, at_count = 0,0
         for i in range(46,n):
 
             curr_char = line[i]
             if curr_char == "+":
-                plus_count += 1
-                if plus_count == 1:
-                    self.task = line[46:i-2]
-                    project_start_ind = i
+                #print("task:"+line[46:i-1]) # debug
+                self.task = line[46:i-1]
+                project_start_ind = i + 1
 
             if curr_char == "@":
-                at_count += 1
-                if at_count == 1:
-                    self.project = line[project_start_ind:i-2]
-                    maths_start_ind = i
+                #print("project:"+line[project_start_ind:i-1]) # debug
+                self.project = line[project_start_ind:i-1]
+                context_start_ind = i + 1
             
-            if i == n:
-                self.maths = line[maths_start_ind:n]
+            if curr_char == "=":
+                self.context = line[context_start_ind:i-1]
+                maths_start_ind = i + 1
+        
+        self.maths = line[maths_start_ind:n]
     
     #append the todo item into the todo.txt file for storage
     def append(self, file_str = "data/todo.txt"):

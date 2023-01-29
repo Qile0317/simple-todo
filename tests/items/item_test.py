@@ -12,7 +12,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__name__), '..')
 
 #items folder
 from src.items import _show
-from src.items import todo_item as todo #__init__ can be assumed to work
+from src.items import todo_item as todo 
+
+#__init__ can be assumed to work
 
 # testing the _show functions, but tbh they are super simple
 class _Test_show(unittest.TestCase):
@@ -40,11 +42,9 @@ class _Test_show(unittest.TestCase):
 class _TestStr(unittest.TestCase):
     def test_str(self):
         test_item = str(todo.item())
-        self.assertEqual(len(test_item),51)
+        self.assertEqual(len(test_item),68)
         self.assertEqual(test_item[0:6], '- ( ) ')
-        self.assertEqual(test_item[45:52], " + @ =") 
-        # so theres an extra space between the "+" and the time before it...
-        #fix? or keep?
+        self.assertEqual(test_item[46:67], "placeholder_task + @ ") 
 
 # testing the readline function
 class _TestRead(unittest.TestCase):
@@ -64,17 +64,12 @@ class _TestRead(unittest.TestCase):
         str_test_item = str(test_item)
         self.assertEqual(len(str_test_item),83)
         self.assertEqual(str_test_item, "x (Q) 2005-03-17 00:00:00 2022-06-07 15:12:01 living on earth +live @none =69 + 420")
-"""
-        # test the actual readline function - doesn't work i messed up something in the code
-        # this code should take the "newline" string and make it the attributes of the item object.
-        # it insteads makes it:
-        # "- (J) 2006-11-12 00:00:00 2022-06-07 15:12:01 placeholder placeholde ++placeholder  @ ="
-        # instead of the string below.
-        
-        newline = "- (J) 2006-11-12 00:00:00 2022-06-07 15:12:01 placeholder placeholder +placeholder   @placeholder =999*7"
-        test_item.readline(newline)
-        self.assertEqual(str(test_item),newline)
-"""
+
+        # test the actual readline function
+        newline_normal = "- (J) 2006-11-12 00:00:00 2022-06-07 15:12:01 placeholder placeholder +placeholder @placeholder =999*7"
+        test_item.readline(newline_normal)
+        self.assertEqual(str(test_item),newline_normal)
+
 #todo.item.append() can be assumed to work due to its simplicity
 
 # conduct tests
