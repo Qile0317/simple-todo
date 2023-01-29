@@ -33,23 +33,35 @@ class item:
         return returnstr
 
     #takes a string of a todo.txt file line and overwrites the todo_item attributes
-    #TODO: test this! 
-    def read(self, line:str):
+    #This does not work properly!!!
+    def readline(self, line:str):
         self.completion = line[0] 
         self.priority = line[3]
         self.startdate = dt.datetime.strptime(line[6:25] ,"%Y-%m-%d %H:%M:%S")
-        self.enddate = dt.datetime.strptime(line[27:45] ,"%Y-%m-%d %H:%M:%S")
+        self.enddate = dt.datetime.strptime(line[26:45] ,"%Y-%m-%d %H:%M:%S")
         
         #getting task, project, context, maths
         n = len(line)
+        plus_count, at_count = 0,0
         for i in range(46,n):
-            curr_char = line[i]
 
+            curr_char = line[i]
             if curr_char == "+":
-                self.task = line[46:i-2]
-                project_start_ind = i
+                plus_count += 1
+                if plus_count == 1:
+                    self.task = line[46:i-2]
+                    project_start_ind = i
+
             if curr_char == "@":
-                self.project = line[project_start_ind:i-2]
-                maths_start_ind = i
+                at_count += 1
+                if at_count == 1:
+                    self.project = line[project_start_ind:i-2]
+                    maths_start_ind = i
+            
             if i == n:
                 self.maths = line[maths_start_ind:n]
+    
+    #append the todo item into the todo.txt file for storage
+    def append(self, file_str = "data/todo.txt"):
+        with open(file_str, "a") as file:
+            file.write(str(self)+"\n")
