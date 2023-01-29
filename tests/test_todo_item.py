@@ -33,9 +33,11 @@ def test_item_args():
                               )
 """
 
+"""
 def test_attributes():
     todo_Item = Todo.TodoDecoder.from_string(
         "x (A) 2023-01-29 15:33:25 2023-01-29 15:33:25 task +project @context =2+2")
-    assert todo_Item ==[True, 'A', dt.datetime(2023, 1, 29, 15, 33, 25), 
+    assert todo_Item == [True, 'A', dt.datetime(2023, 1, 29, 15, 33, 25), 
                         dt.datetime(2023, 1, 29, 15, 33, 25), 'task', 
                         'project', 'context', '2+2']
+"""

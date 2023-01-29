@@ -1,11 +1,6 @@
 __pycache__
 *_cache
 *.egg-info
-<<<<<<< Updated upstream
-.coverage
-.tox
-=======
 build
 .coverage*
 old_code
->>>>>>> Stashed changes
