@@ -1,1 +1,1 @@
-from tests.items import test as item_tests
+from items import item_test
