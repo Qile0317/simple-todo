@@ -65,10 +65,16 @@ class _TestRead(unittest.TestCase):
         self.assertEqual(len(str_test_item),83)
         self.assertEqual(str_test_item, "x (Q) 2005-03-17 00:00:00 2022-06-07 15:12:01 living on earth +live @none =69 + 420")
 
-        # test the actual readline function
+        # test the actual readline function, first with a normal input
         newline_normal = "- (J) 2006-11-12 00:00:00 2022-06-07 15:12:01 placeholder placeholder +placeholder @placeholder =999*7"
         test_item.readline(newline_normal)
         self.assertEqual(str(test_item),newline_normal)
+
+        #now a mostly empty input
+        newline_sparse = "x ( ) yyyy-mm-dd hh:mm:ss 2023-03-14 19:00:00 do this simple task + @ ="
+        test_item = todo.item()
+        test_item.readline(newline_sparse)
+        self.assertEqual(str(test_item),newline_sparse)
 
 #todo.item.append() can be assumed to work due to its simplicity
 

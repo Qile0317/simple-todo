@@ -9,7 +9,9 @@ class item:
     def __init__(self, completion = "-", priority = "", 
                  startdate = dt.datetime.now(),
                  enddate = dt.datetime.now()+dt.timedelta(weeks=1),
-                 task ="placeholder_task",project="",context="",maths ="") -> None:
+                 task ="placeholder_task",project="",context="",
+                 maths ="") -> None:
+
         self.completion = completion # str: x or - (completed or incomplete)
         self.priority = priority # str: A - Z or ""
         self.startdate = startdate # dt.datetime
@@ -37,8 +39,8 @@ class item:
     def readline(self, line:str):
         self.completion = line[0] 
         self.priority = line[3]
-        self.startdate = dt.datetime.strptime(line[6:25] ,"%Y-%m-%d %H:%M:%S")
-        self.enddate = dt.datetime.strptime(line[26:45] ,"%Y-%m-%d %H:%M:%S")
+        self.startdate = _show.convert_date(line[6:25])
+        self.enddate = _show.convert_date(line[26:45])
         
         #getting task, project, context, maths. It assumes there are no additional "+","@" or "="
         n = len(line)

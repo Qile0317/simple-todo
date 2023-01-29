@@ -1,6 +1,9 @@
-#will redo in kivy
 import tkinter as tk
 from screeninfo import get_monitors
+
+class mini_screen:
+    def __init__(self) -> None:
+        self
 
 ## initialize window
 window = tk.Tk()
