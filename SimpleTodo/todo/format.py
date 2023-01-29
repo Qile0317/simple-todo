@@ -1,6 +1,8 @@
 
 import datetime as dt
 
+#there should be a way to edit the current Item object as well
+
 class TodoEncoder:
     
     @classmethod
@@ -69,6 +71,7 @@ class TodoDecoder:
     def priority(priority: str):
         return priority.strip('()')
     
+    #needs to handle yyyy-mm-dd hh:mm:ss (no input by user)
     def date(string: str):
         try:
             return dt.datetime.strptime(string, "%Y-%m-%d %H:%M:%S")
