@@ -1,4 +1,5 @@
-src/__pycache__
-src/items/__pycache__
-tests/__pycache__
-tests/items/__pycache__
+__pycache__
+*_cache
+*.egg-info
+.coverage
+old_code

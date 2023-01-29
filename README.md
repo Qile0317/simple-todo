@@ -1,6 +1,9 @@
 unfinished
 
 notes for contributors:
+
+Recently a big merge happened and a lot of things are being changed and moved around so there will be bugs and missing features.
+
 - data/todo.txt is the file where todo strings are stored
 - each line in data/todo.txt should be in the format of:
 x (A) YYYY-mm-dd HH:MM:SS YYYY-mm-dd HH:MM:SS task +project @context =2+2
