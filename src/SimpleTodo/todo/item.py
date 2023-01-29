@@ -4,7 +4,7 @@
 import datetime as dt
 from .format import TodoEncoder, TodoDecoder 
 
-class TodoItem:
+class Item:
     
     def __init__(self,
         is_finished: bool = False,
@@ -25,7 +25,8 @@ class TodoItem:
         self.project = project
         self.context = context
         self.maths = maths
-        
+    
+    @property
     def attributes(self):
         return [
             self.is_finished,
@@ -38,7 +39,7 @@ class TodoItem:
             self.maths,
         ]
     
-    def __str__(self) -> str:
+    def __repr__(self) -> str:
         return TodoEncoder.to_string(*self.attributes)
     
     @classmethod

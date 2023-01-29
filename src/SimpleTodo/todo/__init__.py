@@ -1,3 +1,3 @@
 
 from .format import TodoEncoder, TodoDecoder
-from .item import TodoItem
+from .item import Item
