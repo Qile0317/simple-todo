@@ -1,18 +1,40 @@
 import unittest
 
-#dependency
+#dependencies
 import datetime as dt
 
-#items folder
-from items import _show
-from items import todo_item as todo #__init__ can be assumed to work
+#the imports are completely screwed up lol
+import os
+import sys
 
-"""
-#testing the _show functions - unfinished: if someone can write some cases for all functions in items/_show.py it'd be nice
+#insert parent dir path???
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__name__), '..')))
+
+#items folder
+from src.items import _show
+from src.items import todo_item as todo #__init__ can be assumed to work
+
+# testing the _show functions, but tbh they are super simple
 class _Test_show(unittest.TestCase):
     def test__show(self):
-        self.assertEqual()
-"""
+
+        self.assertEqual(_show.priority(""),"( ) ")
+        self.assertEqual(_show.priority("A"),"(A) ")
+
+        self.assertEqual(_show.date(dt.datetime(year=2420,
+        month=12,day=2,hour=6,minute=9,second = 1)),"2420-12-02 06:09:01 ")
+        self.assertEqual(_show.date(dt.datetime(year=2420,
+        month=12,day=2,hour=6,minute=9,second = 1,microsecond = 69420)),
+        "2420-12-02 06:09:01 ")
+
+        self.assertEqual(_show.project(""),"+ ")
+        self.assertEqual(_show.project("placeholder"),"+placeholder ")
+
+        self.assertEqual(_show.context("placeholder"),"@placeholder ")
+        self.assertEqual(_show.context(""),"@ ")
+
+        self.assertEqual(_show.maths(""),"=")
+        self.assertEqual(_show.maths("69/420"),"=69/420")
 
 #testing the defeault empty string of the item object
 class _TestStr(unittest.TestCase):

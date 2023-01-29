@@ -2,7 +2,7 @@
 #this script should be imported as "todo" as the class item can be used as "todo.item()"
 
 import datetime as dt # done in __init__.py in main though?
-from items import _show 
+from src.items import _show 
 
 #may need to rename
 class item: 
