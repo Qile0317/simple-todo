@@ -21,6 +21,20 @@ class item:
         self.context = context # str
         self.maths = maths # str (could be parsed)
     
+    # return vector of attributes
+    @property
+    def attributes(self):
+        return [
+            self.completion,
+            self.priority,
+            self.startdate,
+            self.enddate,
+            self.task,
+            self.project,
+            self.context,
+            self.maths,
+        ]
+    
     # return the attributes in the format of:
     # x (A) YYYY-mm-dd HH:MM:SS YYYY-mm-dd HH:MM:SS task +project @context =2+2
     def __repr__(self) -> str:
