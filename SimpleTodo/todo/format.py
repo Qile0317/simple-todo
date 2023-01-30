@@ -16,6 +16,7 @@ class TodoEncoder:
         context: str,
         maths: str,
     ) -> str:
+        
         return " ".join([
             cls.completion(is_finished),
             cls.priority(priority),

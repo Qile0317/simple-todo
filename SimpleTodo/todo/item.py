@@ -8,7 +8,7 @@ class Item:
     
     def __init__(self,
         is_finished: bool = False,
-        priority: str = "", 
+        priority: str = " ", 
         start_date: dt.datetime = dt.datetime.now(),
         end_date: dt.datetime = dt.datetime.now()+dt.timedelta(weeks=1),
         task: str = "placeholder_task",
